@@ -3,9 +3,9 @@ package com.a1qa.a1qademo.utilities;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import static com.a1qa.a1qademo.constants.Constant.TimeoutVariable.EXPLICIT_WAIT;
 
 public class Helper {
 
@@ -69,7 +71,7 @@ public class Helper {
         }
     }
 
-    public static void fluWait(WebDriver driver, ExpectedCondition<WebElement> webElementExpectedCondition) {
+    public static void fluentWait(WebDriver driver, ExpectedCondition<WebElement> webElementExpectedCondition) {
 
         // same as explicit wait
         // difference is you can customize polling frequency
@@ -105,5 +107,11 @@ public class Helper {
             System.out.println("Exception thrown " + e.getMessage());
         }
     }
+
+    public WebElement waitElementIsVisible(WebDriver driver, WebElement webElement){
+        new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOf(webElement));
+        return webElement;
+    }
+
 
 }

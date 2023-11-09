@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
+import static com.a1qa.a1qademo.constants.Constant.TimeoutVariable.EXPLICIT_WAIT;
+import static com.a1qa.a1qademo.constants.Constant.TimeoutVariable.IMPLICIT_WAIT;
 
 public class BrowserFactory {
 
@@ -25,8 +27,8 @@ public class BrowserFactory {
         }
 
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(EXPLICIT_WAIT, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(appURL);
 

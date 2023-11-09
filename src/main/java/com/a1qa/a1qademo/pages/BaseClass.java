@@ -20,11 +20,11 @@ import static com.a1qa.a1qademo.utilities.Helper.getCurrentDateTime;
 
 public class BaseClass {
 
-    public WebDriver driver;
-    public ExcelDataProvider excel;
-    public ConfigDataProvider config;
-    public ExtentReports reporter;
-    public ExtentTest logger;
+    protected WebDriver driver;
+    protected ExcelDataProvider excel;
+    protected ConfigDataProvider config;
+    protected ExtentReports reporter;
+    protected ExtentTest logger;
 
     @BeforeSuite
     public void setUpBeforeSuite() {
