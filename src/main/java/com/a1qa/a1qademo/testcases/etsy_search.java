@@ -16,10 +16,13 @@ public class etsy_search extends BaseClass {
     SearchPage etsySearchpage = PageFactory.initElements(driver, SearchPage.class);
     logger.info("Starting the application");
 
-    etsySearchpage.searchFromEtsy(
-        excel.getStringData("Items", 0, 0)
-    );
+    for (int i = 0; i < 5; i++) {
+      etsySearchpage.searchFromEtsy(
+              excel.getStringData("Items", i, 0)
+      );
 
-    logger.pass("Successfully found the item");
+    }
+
+    logger.pass("Successfully found the items");
   }
 }

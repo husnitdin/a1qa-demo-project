@@ -3,26 +3,38 @@ package com.a1qa.a1qademo.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.Arrays;
 
 public class SearchPage extends BaseClass{
 
   public SearchPage(WebDriver driver) {
     this.driver = driver ;
-    PageFactory.initElements(driver, this); //initialize the objects
+    PageFactory.initElements(driver, this);
   }
 
-  private final By search = By.id("global-enhancements-search-query");
-  private final By hitSearch = By.id("gnav-search-submit-button");
+  @FindBy(id = "global-enhancements-search-query")
+  WebElement search;
+  @FindBy(xpath = "//span[contains(text(), 'results,')]")
+  WebElement numberOfItems;
 
-  public void searchFromEtsy(
-      String item
-  ) throws InterruptedException {
+  @FindBy(xpath = "//*[contains(@class, 'wt-icon--smaller') and contains(@class, 'wt-nudge-t-1')]")
+  WebElement xit;
 
-    driver.findElement(search).sendKeys(item);
-    Thread.sleep(1000);
-    driver.findElement(search).sendKeys(Keys.ENTER);
+  public void searchFromEtsy(String item) throws InterruptedException {
 
-    //driver.findElement(hitSearch).click();
+    search.sendKeys(item, Keys.ENTER);
+
+    String num = numberOfItems.getText().split(" ")[0];
+
+    Thread.sleep(2000);
+
+    System.out.println("In etsy, there are " + num + " " + item+"s");
+
+    xit.click();
+    Thread.sleep(2000);
   }
 }
