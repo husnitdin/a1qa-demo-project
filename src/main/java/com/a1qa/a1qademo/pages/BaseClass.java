@@ -76,6 +76,7 @@ public class BaseClass {
 
     @AfterClass
     public void tearDown() {
+        BrowserFactory.closeDriver(driver);
         BrowserFactory.quitBrowser(driver);
     }
 
