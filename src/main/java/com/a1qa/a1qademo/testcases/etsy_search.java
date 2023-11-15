@@ -2,8 +2,6 @@ package com.a1qa.a1qademo.testcases;
 
 import com.a1qa.a1qademo.pages.BaseClass;
 import com.a1qa.a1qademo.pages.SearchPage;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
