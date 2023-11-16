@@ -16,7 +16,8 @@ public class BrowserFactory {
             if (browserName.equalsIgnoreCase("chrome")) {
 
                 ChromeOptions options = new ChromeOptions();
-                options.setCapability("platform", "MAC");
+                options.setPlatformName("ANY");
+                options.setBrowserVersion("*");
 
             /**
                 Platform.WIN8
